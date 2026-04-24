@@ -14,13 +14,15 @@ public class Connect4 extends JFrame
 {
     private static final long serialVersionUID = 1L;
     private Connector connector;
+
+    //TODO: pick your own username
     private String user = "spacco";
     // TODO: comment out localhost and use euclid on campus
     // remember localhost means your current computer, and if
     // you don't have a server running on your computer then
     // nothing will work
-    private String server = "http://localhost:8080/connect4";
-    //private String server = "http://euclid.knox.edu:8083/connect4";
+    //private String server = "http://localhost:8080/connect4";
+    private String server = "http://euclid.knox.edu:8083/connect4";
 
     public Connect4() {
         super("Connect 4");
@@ -46,6 +48,7 @@ public class Connect4 extends JFrame
 
         JMenuItem newGame = new JMenuItem("New Game");
         fileMenu.add(newGame);
+        
         newGame.addActionListener(e -> {
             NewGameResponse newGameResponse = connector.newGame();
             System.out.println(newGameResponse.toString());

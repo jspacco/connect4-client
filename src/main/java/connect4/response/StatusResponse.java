@@ -15,8 +15,10 @@ public class StatusResponse
     }
     public String toString()
     {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(this);
+        return status + "\n" +
+            "Game Over: " + gameOver + "\n" +
+            "Winner: " + winner + "\n" +
+            "Board:\n" + Util.boardToString(board);
     }
     
     

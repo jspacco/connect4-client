@@ -5,6 +5,7 @@ import java.util.Scanner;
 import connect4.response.ListStrategiesResponse;
 import connect4.response.MoveResponse;
 import connect4.response.NewGameResponse;
+import connect4.response.OKResponse;
 import connect4.response.StatusResponse;
 
 public class CommandLineDriver 
@@ -15,7 +16,6 @@ public class CommandLineDriver
         //TODO: you have to switch to euclid to run this on campus
         // localhost means "the current machine", and unless you
         // are running your own server, localhost won't work
-
         //String baseUrl = "http://euclid.knox.edu:8083/connect4";
         String baseUrl = "http://localhost:8080/connect4";
         String user = "spacco";
@@ -47,6 +47,10 @@ public class CommandLineDriver
                     for (Strategy strategy : list.getStrategies()) {
                         System.out.println(strategy.name + ": " + strategy.description);
                     }
+                } else if (command.equals("strategy")) {
+                    String strategy = scanner.next();
+                    conn.setStrategy(strategy);
+                    System.out.println("Strategy set to " + strategy);
                 } else if (command.equals("help")) {
                     help();
                 } else {

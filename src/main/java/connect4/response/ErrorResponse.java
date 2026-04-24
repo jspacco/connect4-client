@@ -3,7 +3,6 @@ package connect4.response;
 import com.google.gson.*;
 
 public class ErrorResponse {
-    public int httpCode;
     public String status;
     public String message;
 

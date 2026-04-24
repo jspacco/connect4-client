@@ -1,5 +1,6 @@
 package connect4;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -43,7 +44,7 @@ public class Connector {
                 throw new Connect4Error(err);
             }
             return NewGameResponse.fromJson(response.body());
-        } catch (Exception e) {
+        } catch(IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -62,7 +63,7 @@ public class Connector {
                 throw new Connect4Error(err);
             }
             return MoveResponse.fromJson(response.body());
-        } catch(Exception e) {
+        } catch(IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -81,7 +82,7 @@ public class Connector {
                 throw new Connect4Error(err);
             }
             return StatusResponse.fromJson(response.body());
-        } catch(Exception e) {
+        } catch(IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -100,7 +101,7 @@ public class Connector {
                 throw new Connect4Error(err);
             }
             return ListStrategiesResponse.fromJson(response.body());
-        } catch(Exception e) {
+        } catch(IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -119,7 +120,7 @@ public class Connector {
                 throw new Connect4Error(err);
             }
             return OKResponse.fromJson(response.body());
-        } catch(Exception e) {
+        } catch(IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
